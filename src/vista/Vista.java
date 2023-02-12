@@ -39,37 +39,37 @@ public class Vista {
 			case 6:
 				boolean end2 = false;
 				do {
-					GestorPasajero gestorPasajero = new GestorPasajero();				
+					GestorPasajero gestorPasajero = new GestorPasajero();
 					Pasajero pasajero = new Pasajero();
 					menuSecundario();
 					int caso = sc.nextInt();
 					switch (caso) {
-						case 1:
-							aniadir(pasajero, gestorPasajero);
-							break;
-						case 2:
-							borrar(pasajero, gestorPasajero);
-							break;
-						case 3:
-							consultar(pasajero, gestorPasajero);
-							break;
-						case 4:
-							listar(pasajero, gestorPasajero);
-							break;
-						case 5:
-							aniadir(pasajero, gestorPasajero, coche, gestorCoche);
-							break;
-						case 6:
-							borrar(pasajero, gestorPasajero, coche, gestorCoche);
-							break;
-						case 7:
-							listar(pasajero, gestorPasajero, coche, gestorCoche);
-							break;
-						case 8:
-							end2 = true; 
-							break;
+					case 1:
+						aniadir(pasajero, gestorPasajero);
+						break;
+					case 2:
+						borrar(pasajero, gestorPasajero);
+						break;
+					case 3:
+						consultar(pasajero, gestorPasajero);
+						break;
+					case 4:
+						listar(pasajero, gestorPasajero);
+						break;
+					case 5:
+						aniadir(pasajero, gestorPasajero, coche, gestorCoche);
+						break;
+					case 6:
+						borrar(pasajero, gestorPasajero, coche, gestorCoche);
+						break;
+					case 7:
+						listar(pasajero, gestorPasajero, coche, gestorCoche);
+						break;
+					case 8:
+						end2 = true;
+						break;
 					}
-				}while (!end2);
+				} while (!end2);
 				break;
 			case 7:
 				end = true;
@@ -131,6 +131,11 @@ public class Vista {
 
 	private static void borrar(Coche coche, GestorCoche gestorCoche) {
 		System.out.println("Introduce el ID del coche");
+		while (!sc.hasNextInt()) {
+			System.out.println("El ID debe ser un valor numérico");
+			sc.nextLine();
+			System.out.println("Introduce el ID del coche");
+		}
 		int id = sc.nextInt();
 		boolean baja = gestorCoche.borrar(id);
 		if (baja) {
@@ -138,16 +143,27 @@ public class Vista {
 		} else {
 			System.out.println("No se ha podido borrar el coche");
 		}
+		
 	}
 
 	private static void consultar(Coche coche, GestorCoche gestorCoche) {
 		System.out.println("Introduce el ID del coche");
+		while (!sc.hasNextInt()) {
+			System.out.println("El ID debe ser un valor numérico");
+			sc.nextLine();
+			System.out.println("Introduce el ID del coche");
+		}
 		int id1 = sc.nextInt();
 		System.out.println("El coche es: " + gestorCoche.consultar(id1));
 	}
 
 	private static void modificar(Coche coche, GestorCoche gestorCoche) {
 		System.out.println("Introduce el ID del coche");
+		while (!sc.hasNextInt()) {
+			System.out.println("El ID debe ser un valor numérico");
+			sc.nextLine();
+			System.out.println("Introduce el ID del coche");
+		}
 		int id2 = sc.nextInt();
 		coche.setId(id2);
 
@@ -186,12 +202,22 @@ public class Vista {
 		pasajero.setNombre(nombre);
 
 		System.out.println("Introduce la edad del pasajero: ");
-		String edad = sc.next();
-		pasajero.setEdad(Integer.parseInt(edad));
+		while (!sc.hasNextInt()) {
+			System.out.println("La edad debe ser un valor numérico");
+			sc.nextLine();
+			System.out.println("Introduce la edad del pasajero");
+		}
+		int edad = sc.nextInt();
+		pasajero.setEdad((edad));
 
 		System.out.println("Introduce el peso del pasajero: ");
-		String peso = sc.next();
-		pasajero.setPeso(Double.parseDouble(peso));
+		while (!sc.hasNextInt()) {
+			System.out.println("El peso debe ser un valor numérico");
+			sc.nextLine();
+			System.out.println("Introduce el peso del pasajero");
+		}
+		Double peso = sc.nextDouble();
+		pasajero.setPeso(peso);
 
 		boolean alta = gestorPasajero.aniadir(pasajero);
 		if (alta) {
@@ -203,6 +229,11 @@ public class Vista {
 
 	private static void borrar(Pasajero pasajero, GestorPasajero gestorPasajero) {
 		System.out.println("Introduce el ID del pasajero");
+		while (!sc.hasNextInt()) {
+			System.out.println("El ID debe ser un valor numérico");
+			sc.nextLine();
+			System.out.println("Introduce el ID del pasajero");
+		}
 		int id = sc.nextInt();
 		boolean baja = gestorPasajero.borrar(id);
 		if (baja) {
@@ -217,6 +248,11 @@ public class Vista {
 		GestorCoche gestorCoche = new GestorCoche();
 		listar(coche, gestorCoche);
 		System.out.println("Introduce el ID del coche");
+		while (!sc.hasNextInt()) {
+			System.out.println("El ID debe ser un valor numérico");
+			sc.nextLine();
+			System.out.println("Introduce el ID del coche");
+		}
 		int id = sc.nextInt();
 		System.out.println("El pasajero es: " + gestorPasajero.consultar(id));
 	}
@@ -230,6 +266,11 @@ public class Vista {
 			GestorCoche gestorCoche) {
 		listar(coche, gestorCoche);
 		System.out.println("Introduce el ID del coche: ");
+		while (!sc.hasNextInt()) {
+			System.out.println("El ID debe ser un valor numérico");
+			sc.nextLine();
+			System.out.println("Introduce el ID del coche");
+		}
 		int idCoche = sc.nextInt();
 		listar(pasajero, gestorPasajero);
 		System.out.println("Introduce el ID del pasajero: ");
@@ -249,6 +290,11 @@ public class Vista {
 		listar(pasajero, gestorPasajero, coche, gestorCoche);
 
 		System.out.println("Introduce el ID del pasajero");
+		while (!sc.hasNextInt()) {
+			System.out.println("El ID debe ser un valor numérico");
+			sc.nextLine();
+			System.out.println("Introduce el ID del pasajero");
+		}
 		int idPasajero = sc.nextInt();
 
 		boolean baja = gestorPasajero.desasignar(idPasajero);
