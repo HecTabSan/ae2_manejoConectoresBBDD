@@ -213,6 +213,9 @@ public class Vista {
 	}
 
 	private static void consultar(Pasajero pasajero, GestorPasajero gestorPasajero) {
+		Coche coche = new Coche();
+		GestorCoche gestorCoche = new GestorCoche();
+		listar(coche, gestorCoche);
 		System.out.println("Introduce el ID del coche");
 		int id = sc.nextInt();
 		System.out.println("El pasajero es: " + gestorPasajero.consultar(id));
