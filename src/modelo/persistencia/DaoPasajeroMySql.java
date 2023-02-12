@@ -95,7 +95,7 @@ public class DaoPasajeroMySql implements DaoPasajero {
 		Pasajero pasajero = null;
 		if (openConnection()) {
 
-			String query = "select * from PASAJEROS where id = ?";
+			String query = "SELECT * from pasajeros WHERE id_coche = ?";
 			try {
 				PreparedStatement ps = connection.prepareStatement(query);
 				ps.setInt(1, id);
@@ -106,8 +106,7 @@ public class DaoPasajeroMySql implements DaoPasajero {
 					pasajero.setId(rs.getInt(1));
 					pasajero.setNombre(rs.getString(2));
 					pasajero.setEdad(rs.getInt(3));
-					pasajero.setPeso(rs.getDouble(4));
-					// aquí falta conseguir el id del coche en el que esté
+					pasajero.setPeso(rs.getDouble(4));					
 				}
 			} catch (SQLException e) {
 				System.out.println("Error al obtener el pasajero con id " + id);
