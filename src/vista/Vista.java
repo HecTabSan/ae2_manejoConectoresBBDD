@@ -69,13 +69,13 @@ public class Vista {
 						listar(gestorPasajero);
 						break;
 					case 5:
-						aniadir(pasajero, gestorPasajero, coche, gestorCoche);
+						aniadir(gestorPasajero, gestorCoche);
 						break;
 					case 6:
-						borrar(pasajero, gestorPasajero, coche, gestorCoche);
+						borrar(gestorPasajero, gestorCoche);
 						break;
 					case 7:
-						listar(gestorPasajero, coche, gestorCoche);
+						listar(gestorPasajero, gestorCoche);
 						break;
 					case 8:
 						end2 = true;
@@ -315,14 +315,12 @@ public class Vista {
 
 	/**
 	 * Método que asigna un pasajero a un coche, modificando así la FK de la tabla pasajeros
-	 * @param pasajero objeto cuyos atributos se corresponden con las columnas de la tabla pasajeros de la bd
 	 * @param gestorPasajero objeto de la clase GestorPasajero que establece las reglas de negocio
 	 * @param coche objeto cuyos atributos se corresponden con las columnas de la tabla coches de la bd
 	 * @param gestorCoche objeto de la clase gestorCoche que establece las reglas de negocio
 	 */
-	private static void aniadir(Pasajero pasajero, GestorPasajero gestorPasajero, Coche coche,
-			GestorCoche gestorCoche) {
-		listar(coche, gestorCoche);
+	private static void aniadir(GestorPasajero gestorPasajero, GestorCoche gestorCoche) {
+		listar(gestorCoche);
 		System.out.println("Introduce el ID del coche: ");
 		while (!sc.hasNextInt()) {
 			System.out.println("El ID debe ser un valor numérico");
@@ -330,7 +328,7 @@ public class Vista {
 			System.out.println("Introduce el ID del coche");
 		}
 		int idCoche = sc.nextInt();
-		listar(pasajero, gestorPasajero);
+		listar(gestorPasajero);
 		System.out.println("Introduce el ID del pasajero: ");
 		int idPasajero = sc.nextInt();
 
@@ -345,14 +343,13 @@ public class Vista {
 
 	/**
 	 * Método que borra un pasajero asignado a un coche, modificando así la FK de la tabla pasajeros (la pasa a null)
-	 * @param pasajero objeto cuyos atributos se corresponden con las columnas de la tabla pasajeros de la bd
 	 * @param gestorPasajero objeto de la clase GestorPasajero que establece las reglas de negocio
 	 * @param coche objeto cuyos atributos se corresponden con las columnas de la tabla coches de la bd
 	 * @param gestorCoche objeto de la clase gestorCoche que establece las reglas de negocio
 	 */
-	private static void borrar(Pasajero pasajero, GestorPasajero gestorPasajero, Coche coche, GestorCoche gestorCoche) {
+	private static void borrar(GestorPasajero gestorPasajero, GestorCoche gestorCoche) {
 
-		listar(pasajero, gestorPasajero, coche, gestorCoche);
+		listar(gestorPasajero, gestorCoche);
 
 		System.out.println("Introduce el ID del pasajero");
 		while (!sc.hasNextInt()) {
@@ -374,11 +371,10 @@ public class Vista {
 	/**
 	 * Método que lista los pasajeros de un coche	 
 	 * @param gestorPasajero objeto de la clase GestorPasajero que establece las reglas de negocio
-	 * @param coche objeto cuyos atributos se corresponden con las columnas de la tabla coches de la bd
 	 * @param gestorCoche objeto de la clase gestorCoche que establece las reglas de negocio
 	 */
-	private static void listar(GestorPasajero gestorPasajero, Coche coche, GestorCoche gestorCoche) {
-		listar(coche, gestorCoche);
+	private static void listar(GestorPasajero gestorPasajero,GestorCoche gestorCoche) {
+		listar(gestorCoche);
 		System.out.println("Introduce el ID del coche: ");
 		int idCoche = sc.nextInt();
 
