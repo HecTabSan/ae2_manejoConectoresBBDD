@@ -1,8 +1,6 @@
 package modelo.persistencia.interfaces;
 
 import java.util.List;
-
-import modelo.entidad.Coche;
 import modelo.entidad.Pasajero;
 
 public interface DaoPasajero {

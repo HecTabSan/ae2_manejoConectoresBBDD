@@ -2,17 +2,13 @@ package modelo.negocio;
 
 import java.util.List;
 
-import modelo.entidad.Coche;
 import modelo.entidad.Pasajero;
-import modelo.persistencia.DaoCocheMySql;
 import modelo.persistencia.DaoPasajeroMySql;
-import modelo.persistencia.interfaces.DaoCoche;
 import modelo.persistencia.interfaces.DaoPasajero;
 
 public class GestorPasajero {
 	
 	private DaoPasajero daoPasajero = new DaoPasajeroMySql();
-	private DaoCoche daoCoche = new DaoCocheMySql();
 	
 	/**
 	 * Método que permite añadir un pasajero a una bbdd. Se verifica que los datos introducidos cumplen con 

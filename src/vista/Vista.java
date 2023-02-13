@@ -6,6 +6,7 @@ import modelo.entidad.Coche;
 import modelo.entidad.Pasajero;
 import modelo.negocio.GestorCoche;
 import modelo.negocio.GestorPasajero;
+import modelo.persistencia.DAObbdd;
 
 public class Vista {
 	private static Scanner sc;
@@ -14,6 +15,17 @@ public class Vista {
 
 		boolean end = false;
 		sc = new Scanner(System.in);
+		
+		// Preparación de la base de datos 
+		DAObbdd dao = new DAObbdd();
+		
+		if(!dao.connect()) {
+			dao.createDatabase();
+			dao.checkTable();
+		} else {
+			System.out.println("Conectado a la base de datos");
+			dao.checkTable();
+		}
 
 		do {
 			GestorCoche gestorCoche = new GestorCoche();
