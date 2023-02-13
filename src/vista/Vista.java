@@ -102,6 +102,7 @@ public class Vista {
 		System.out.println("5 - Listar todos los coches");
 		System.out.println("6 - Gestión de pasajeros");
 		System.out.println("7 - Terminar programa");
+		System.out.println("=================");
 	}
 
 	private static void menuSecundario() {
@@ -114,6 +115,8 @@ public class Vista {
 		System.out.println("6 - Eliminar pasajero de un coche");
 		System.out.println("7 - Listar pasajeros de un coche");
 		System.out.println("8 - Salir submenú");
+		System.out.println("=================");
+
 	}
 
 	/**

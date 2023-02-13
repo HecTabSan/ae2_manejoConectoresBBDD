@@ -123,7 +123,7 @@ public class DaoPasajeroMySql implements DaoPasajero {
 		List<Pasajero> listaPasajeros = new ArrayList<>();
 		if (openConnection()) {
 
-			String query = "select * from PASAJEROS";
+			String query = "select * from pasajeros";
 			try {
 				PreparedStatement ps = connection.prepareStatement(query);
 
@@ -152,7 +152,7 @@ public class DaoPasajeroMySql implements DaoPasajero {
 		List<Pasajero> listaPasajeros = new ArrayList<>();
 		if (openConnection()) {
 
-			String query = "select id, nombre, edad, peso from PASAJEROS WHERE id_coche = ?";
+			String query = "select id, nombre, edad, peso from pasajeros WHERE id_coche = ?";
 			try {
 				PreparedStatement ps = connection.prepareStatement(query);
 				ps.setInt(1, idCoche);
@@ -210,7 +210,7 @@ public class DaoPasajeroMySql implements DaoPasajero {
 	public boolean delete(int id) {
 		boolean deleted = false;
 		if (openConnection()) {
-			String query = "delete from PASAJEROS where id=?";
+			String query = "delete from pasajeros where id=?";
 			try {
 				PreparedStatement ps = connection.prepareStatement(query);
 				ps.setInt(1, id);
